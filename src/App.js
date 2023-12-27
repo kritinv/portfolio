@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Column1 from "./Column1";
 import Column2 from "./Column2";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("about");
@@ -10,28 +10,40 @@ function App() {
     setCurrentSection(current);
   };
 
-  const handleScroll = () => {
-    const column2 = document.querySelector(".column2");
-    if (column2) {
-      const scrollY = window.scrollY || window.pageYOffset;
-      column2.scrollTop = scrollY;
-    }
-  };
+  const [contentHover, setContentHover] = useState(false);
+  const contentRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
+    const handleScrolling = (event) => {
+      if (contentRef !== null) {
+        if (contentHover === false) {
+          contentRef.current.scrollTop += event.deltaY;
+        }
+      }
     };
-  }, []); // Run effect only once on mount
+
+    window.addEventListener("wheel", handleScrolling);
+
+    return () => {
+      window.removeEventListener("wheel", handleScrolling);
+    };
+  });
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      onMouseEnter={() => {
+        setContentHover(true);
+      }}
+      onMouseLeave={() => {
+        setContentHover(false);
+      }}
+    >
       <Column1
         activeSection={currentSection}
         setCurrentSection={setCurrentSection}
       />
-      <Column2 setCurrentSection={handleCurrentSection} />
+      <Column2 ref={contentRef} etCurrentSection={handleCurrentSection} />
     </div>
   );
 }
