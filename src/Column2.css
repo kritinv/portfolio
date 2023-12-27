@@ -1,0 +1,218 @@
+/* Column2.css */
+
+/*  */
+#project-link {
+  text-decoration: none;
+  color: #333;
+}
+
+/*  */
+
+#about {
+  margin-top: 0px;
+}
+.aboutme {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.two-column-container {
+  display: flex-row;
+}
+
+.project-section-container {
+  display: flex;
+  width: 100%;
+}
+
+.section-header {
+  padding-top: 80px;
+}
+
+.project-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.honorable {
+  font-size: 12px;
+  margin-bottom: 120px;
+}
+
+.project-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1); /* Initial fully transparent */
+  z-index: 1;
+  opacity: 0; /* Initial fully transparent */
+  transition: opacity 0.3s ease; /* Add transition for opacity */
+}
+
+.project-container:hover::before {
+  opacity: 0.05; /* Faded translucent black overlay on hover */
+}
+
+.project-title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+}
+
+.project-title-pasta {
+  font-size: 15px;
+  margin: 0;
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+}
+
+.pasta {
+  width: 120px; /* Set your desired width */
+  height: 120px; /* Set your desired height */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+}
+
+p {
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.gif-element {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.left-column {
+  width: 30%;
+  padding: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Horizontally align to the right */
+  align-items: flex-end; /* Horizontally align to the right */
+}
+
+.date {
+  font-weight: bold;
+  margin-top: auto; /* Align the date at the bottom */
+  text-align: right;
+  font-size: 14px;
+}
+
+.rank {
+  font-weight: bold;
+  margin-top: auto; /* Align the date at the bottom */
+  text-align: right;
+  font-size: 15px;
+}
+
+/* Your existing CSS */
+
+.link {
+  text-decoration: none;
+}
+
+.link-icon {
+  margin-left: 12px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; /* Horizontally align to the right */
+  align-items: center; /* Vertically align items to the center */
+  position: relative; /* Create a positioning context for the link */
+  z-index: 2; /* Ensure the link is above the overlay */
+}
+
+.project-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative; /* Create a positioning context for the link */
+  z-index: 2; /* Ensure the link is above the overlay */
+}
+
+.margin {
+  height: 100px;
+}
+
+.button-link {
+  text-decoration: none;
+}
+
+.button-link:hover .button {
+  padding-bottom: 2.5px;
+  padding-top: 2.5px;
+  font-size: 12px;
+}
+
+.button-link:hover .icon-various {
+  height: 15px;
+}
+
+.icon-various {
+  height: 10px;
+}
+
+.button {
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 10px;
+  padding: 5px;
+  margin-right: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.right-column {
+  width: 70%;
+  padding: 10px;
+  padding-left: 5px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 5px;
+}
+
+.description {
+  font-size: 11px;
+  margin-bottom: 20px;
+  align-self: flex-end; /* Align the date at the bottom vertically */
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.tech-button {
+  font-size: 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  padding: 3px 7px;
+  color: #f8f8f0; /* Very dark grey text color */
+  background-color: #333; /* Light cream background color */
+  border-radius: 5px;
+  cursor: pointer;
+}
