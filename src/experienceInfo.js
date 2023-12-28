@@ -45,7 +45,7 @@ const projects = [
     description:
       "I constructed rebalancing indices for the Stock Exchange of Thailand within the newly developed quantitative research department.",
     technologiesUsed: ["Python", "Pandas", "Numpy"],
-    date: "Feb - May 2021",
+    date: "Dec - Jan 2021",
     link: "https://bank.kkpfg.com/en/aboutus/phatra-securities",
   },
 ];
