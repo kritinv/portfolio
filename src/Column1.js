@@ -76,64 +76,44 @@ function Column1({ activeSection, setCurrentSection }) {
       <nav>
         <ul>
           <li className={activeSection === "about" ? "active" : ""}>
-            <div className="menuwrapper">
-              <div className="menuline-wrapper">
-                <hr className="menuline"></hr>
+            <a className="menuitem" onClick={() => scrollToSection("about")}>
+              <div className="menuwrapper">
+                <div className="menuline-wrapper">
+                  <hr className="menuline"></hr>
+                </div>
+                <div>About</div>
               </div>
-              <div>
-                <a
-                  className="menuitem"
-                  onClick={() => scrollToSection("about")}
-                >
-                  About
-                </a>
-              </div>
-            </div>
+            </a>
           </li>
           <li className={activeSection === "projects" ? "active" : ""}>
-            <div className="menuwrapper">
-              <div className="menuline-wrapper">
-                <hr className="menuline"></hr>
+            <a onClick={() => scrollToSection("projects")}>
+              <div className="menuwrapper">
+                <div className="menuline-wrapper">
+                  <hr className="menuline"></hr>
+                </div>
+                <div className="menuitem">Projects</div>
               </div>
-              <div>
-                <a
-                  className="menuitem"
-                  onClick={() => scrollToSection("projects")}
-                >
-                  Projects
-                </a>
-              </div>
-            </div>
+            </a>
           </li>
           <li className={activeSection === "experience" ? "active" : ""}>
-            <div className="menuwrapper">
-              <div className="menuline-wrapper">
-                <hr className="menuline"></hr>
+            <a onClick={() => scrollToSection("experience")}>
+              <div className="menuwrapper">
+                <div className="menuline-wrapper">
+                  <hr className="menuline"></hr>
+                </div>
+                <div className="menuitem"> Experience</div>
               </div>
-              <div>
-                <a
-                  onClick={() => scrollToSection("experience")}
-                  className="menuitem"
-                >
-                  Experience
-                </a>
-              </div>
-            </div>
+            </a>
           </li>
           <li className={activeSection === "pastas" ? "active" : ""}>
-            <div className="menuwrapper">
-              <div className="menuline-wrapper">
-                <hr className="menuline"></hr>
+            <a onClick={() => scrollToSection("pastas")} className="menuitem">
+              <div className="menuwrapper">
+                <div className="menuline-wrapper">
+                  <hr className="menuline"></hr>
+                </div>
+                <div>Pastas</div>
               </div>
-              <div>
-                <a
-                  onClick={() => scrollToSection("pastas")}
-                  className="menuitem"
-                >
-                  Pastas
-                </a>
-              </div>
-            </div>
+            </a>
           </li>
         </ul>
       </nav>

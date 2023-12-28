@@ -69,6 +69,10 @@ li.active .menuitem {
   text-decoration: none;
 }
 
+.menuitem:hover {
+  font-weight: bold;
+}
+
 .contact {
   display: flex;
   flex-direction: flex-start;

@@ -6,44 +6,14 @@ import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [currentSection, setCurrentSection] = useState("about");
-  const handleCurrentSection = (current) => {
-    setCurrentSection(current);
-  };
-
-  const [contentHover, setContentHover] = useState(false);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const handleScrolling = (event) => {
-      if (contentRef !== null) {
-        if (contentHover === false) {
-          contentRef.current.scrollTop += event.deltaY;
-        }
-      }
-    };
-
-    window.addEventListener("wheel", handleScrolling);
-
-    return () => {
-      window.removeEventListener("wheel", handleScrolling);
-    };
-  });
 
   return (
-    <div
-      className="App"
-      onMouseEnter={() => {
-        setContentHover(true);
-      }}
-      onMouseLeave={() => {
-        setContentHover(false);
-      }}
-    >
+    <div className="App">
       <Column1
         activeSection={currentSection}
         setCurrentSection={setCurrentSection}
       />
-      <Column2 ref={contentRef} etCurrentSection={handleCurrentSection} />
+      <Column2 className="invi" />
     </div>
   );
 }

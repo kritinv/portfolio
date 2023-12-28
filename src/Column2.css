@@ -85,8 +85,9 @@ p {
 }
 
 .gif-element {
-  width: 120px;
-  margin-bottom: 10px;
+  width: 120px; /* Set your desired width */
+  height: 70px; /* Set your desired height */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire container */
 }
 
 .left-column {

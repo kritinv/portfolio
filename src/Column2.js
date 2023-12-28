@@ -17,7 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useRef, useEffect, useState } from "react";
 
-function Column2({ setCurrentSection }) {
+function Column2({ offset }) {
   const myRef = useRef();
   const [isButtonHovered, setIsButtonHovered] = useState(false);
   const uniqueTechnologies = new Set();
@@ -28,7 +28,6 @@ function Column2({ setCurrentSection }) {
   experienceInfo.forEach((project) => {
     project.technologiesUsed.forEach((tech) => uniqueTechnologies.add(tech));
   });
-  console.log(uniqueTechnologies);
   const uniqueTechnologiesArray = Array.from(uniqueTechnologies);
 
   const onScroll = () => {

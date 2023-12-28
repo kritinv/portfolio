@@ -10,30 +10,31 @@
 }
 
 .column1 {
+  margin-left: 200px;
   padding: 60px;
-  padding-left: 100px;
   width: 50%;
-  max-width: 400px;
-  overflow-y: auto;
-  min-height: calc(100vh - 120px);
+  max-width: 380px;
+  height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 52%;
 }
 
 .column2 {
+  margin-left: 530px;
   padding: 60px;
-  padding-left: 20px;
+  padding-left: 60px;
   padding-right: 100px;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 0px;
   width: 50%;
   max-width: 520px;
-  overflow-y: auto;
-  height: calc(100vh);
 }
 
-.column2::-webkit-scrollbar {
+/* .column2::-webkit-scrollbar {
   display: none;
 }
 
@@ -47,18 +48,35 @@
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 1200px) {
+  .column1 {
+    right: 48%;
+  }
+}
+
 /* Add a media query for smaller screens */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .App {
     flex-direction: column; /* Stack columns for smaller screens */
   }
 
+  .column1 {
+    margin-top: 12px;
+    height: calc(100vh - 120px);
+    position: static;
+  }
+
+  .column2 {
+    margin-bottom: 0px;
+  }
+
   .column1,
   .column2 {
+    margin-left: 0px;
     max-width: 75%;
     width: 80%; /* Take up full width on smaller screens */
     margin-right: 0px;
-    overflow-y: hidden;
+    overflow: hidden; /* Hide overflow to prevent scrolling */
     padding: 0px;
     display: flex;
     flex-direction: column;
@@ -84,4 +102,26 @@
     visibility: hidden;
     height: 0px;
   }
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  width: 12px; /* Set a width for the scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent; /* Make the track (background) transparent */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Make the thumb (the draggable part) transparent */
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
 }
