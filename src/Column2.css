@@ -39,24 +39,7 @@
 
 .honorable {
   font-size: 12px;
-  margin-bottom: 120px;
-}
-
-.project-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 1); /* Initial fully transparent */
-  z-index: 1;
-  opacity: 0; /* Initial fully transparent */
-  transition: opacity 0.3s ease; /* Add transition for opacity */
-}
-
-.project-container:hover::before {
-  opacity: 0.05; /* Faded translucent black overlay on hover */
+  padding-bottom: 100px;
 }
 
 .project-title {
@@ -75,7 +58,7 @@
 
 .pasta {
   width: 120px; /* Set your desired width */
-  height: 120px; /* Set your desired height */
+  height: 70px; /* Set your desired height */
   object-fit: cover; /* Maintain aspect ratio and cover the entire container */
 }
 
@@ -140,6 +123,11 @@ p {
   z-index: 2; /* Ensure the link is above the overlay */
 }
 
+.project-title-wrapper:hover .project-title {
+  font-size: 21px;
+  margin-bottom: -1px;
+}
+
 .margin {
   height: 100px;
 }
@@ -151,11 +139,11 @@ p {
 .button-link:hover .button {
   padding-bottom: 2.5px;
   padding-top: 2.5px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .button-link:hover .icon-various {
-  height: 15px;
+  height: 11px;
 }
 
 .icon-various {

@@ -1,5 +1,4 @@
 // Column2.js
-
 import React from "react";
 import "./Column2.css"; // Create a new CSS file for this component if needed
 import projectInfo from "./projectInfo";
@@ -8,57 +7,41 @@ import experienceInfo from "./experienceInfo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLaptop,
-  faVideo,
   faCode,
   faPen,
-  faLink,
   faExternalLinkAlt,
-  faE,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRef, useEffect, useState } from "react";
+import Switch from "@mui/material/Switch";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { useState } from "react";
+import { ThemeProvider } from "@emotion/react";
+import { createTheme } from "@mui/material/styles";
 
-function Column2({ offset }) {
-  const myRef = useRef();
+const theme = createTheme({
+  typography: {
+    fontFamily: "Poppins, sans-serif", // Change this to the desired font
+    fontSize: 12, // Adjust the font size here
+  },
+});
+
+function Column2() {
   const [isButtonHovered, setIsButtonHovered] = useState(false);
-  const uniqueTechnologies = new Set();
+  const [checkedProject, setCheckedProject] = useState(false);
+  const [checkedExperience, setCheckedExperience] = useState(false);
+  const [checkedPasta, setCheckedPasta] = useState(false);
 
-  projectInfo.forEach((project) => {
-    project.technologiesUsed.forEach((tech) => uniqueTechnologies.add(tech));
-  });
-  experienceInfo.forEach((project) => {
-    project.technologiesUsed.forEach((tech) => uniqueTechnologies.add(tech));
-  });
-  const uniqueTechnologiesArray = Array.from(uniqueTechnologies);
-
-  const onScroll = () => {
-    const currentScrollTop = myRef.current.scrollTop;
-
-    const aboutMeSection = myRef.current.querySelector("#about").offsetTop;
-    const projectsSection = myRef.current.querySelector("#projects").offsetTop;
-    const experienceSection =
-      myRef.current.querySelector("#experience").offsetTop;
-    const pastaSection = myRef.current.querySelector("#pastas").offsetTop;
-
-    const sections = [
-      { id: "about", offset: aboutMeSection },
-      { id: "projects", offset: projectsSection },
-      { id: "experience", offset: experienceSection },
-      { id: "pastas", offset: pastaSection },
-    ];
-
-    let currentSection = "about";
-
-    for (const section of sections) {
-      if (currentScrollTop >= section.offset) {
-        currentSection = section.id;
-      } else {
-        break;
-      }
-    }
+  const handleChangeProject = () => {
+    setCheckedProject((prev) => !prev);
+  };
+  const handleChangeExperience = () => {
+    setCheckedExperience((prev) => !prev);
+  };
+  const handleChangePasta = () => {
+    setCheckedPasta((prev) => !prev);
   };
 
   return (
-    <div className="column2" onScroll={onScroll} ref={myRef}>
+    <div className="column2">
       {/*****************************************************/}
       {/********************* About me **********************/}
       {/*****************************************************/}
@@ -73,22 +56,21 @@ function Column2({ offset }) {
       <div className="aboutme">
         Currently pursuing a major in{" "}
         <a href="https://orfe.princeton.edu/" className="text-link">
-          <strong>Operations Research and Financial Engineering</strong>
+          <strong>Operations Research</strong>
         </a>{" "}
         , with minors in{" "}
-        <a
+        {/* <a
           href="https://www.cs.princeton.edu/ugrad/overview"
           className="text-link"
-        >
-          <strong>Computer Science</strong>
-        </a>{" "}
+        > */}
+        Computer Science {/* </a>{" "} */}
         and Music Performance (
-        <a
+        {/* <a
           href="https://music.princeton.edu/undergraduate/certificate-programs/"
           className="text-link"
-        >
-          <strong>Piano</strong>
-        </a>
+        > */}
+        Piano
+        {/* </a> */}
         ), I really enjoy creating, building, and learning new things.
       </div>
       <div className="aboutme">
@@ -115,19 +97,17 @@ function Column2({ offset }) {
       </div>
       <div className="aboutme">
         Beyond the screen, you might find me experimenting with{" "}
-        <a
+        {/* <a
           href="https://www.youtube.com/watch?v=AX-YfWX0bFY"
           className="text-link"
-        >
-          <strong>pasta</strong>
-        </a>{" "}
+        > */}
+        pasta {/* </a>{" "} */}
         recipes, challenging my{" "}
-        <a
+        {/* <a
           href="https://www.youtube.com/watch?v=G3ticHfFo2Q"
           className="text-link"
-        >
-          <strong>spice</strong>
-        </a>{" "}
+        > */}
+        spice {/* </a>{" "} */}
         tolerance, jamming to{" "}
         <a
           href="https://www.youtube.com/watch?v=kACt0FM0Kf8"
@@ -142,14 +122,13 @@ function Column2({ offset }) {
         >
           <strong>Liszt</strong>
         </a>
-        ), or exploring the{" "}
-        <a
+        ), or skipping{" "}
+        {/* <a
           href="https://www.youtube.com/watch?v=MfstYSUscBc"
           className="text-link"
-        >
-          <strong>outdoors</strong>
-        </a>
-        . Let's connect and create something amazing!
+        > */}
+        leg day
+        {/* </a> */}. Let's connect and create something amazing!
       </div>
       {/*****************************************************/}
       {/********************* Projects **********************/}
@@ -157,21 +136,33 @@ function Column2({ offset }) {
       <h1 id="projects" className="section-header">
         Projects
       </h1>
+      <ThemeProvider theme={theme}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={checkedProject}
+              onChange={handleChangeProject}
+              color="default"
+            />
+          }
+          label="Display Technologies"
+        />
+      </ThemeProvider>
       {projectInfo.map((project, index) => (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={project.liveDemoLink}
-          id="project-link"
-        >
-          <div key={index} className="project-container">
-            <div className="project-section-container">
-              {/* Project Date */}
-              <div className="left-column date-wrapper">
-                <div className="date">{project.date}</div>
-              </div>
-              {/* Project Title */}
-              <div className="right-column">
+        <div key={index} className="project-container">
+          <div className="project-section-container">
+            {/* Project Date */}
+            <div className="left-column date-wrapper">
+              <div className="date">{project.date}</div>
+            </div>
+            {/* Project Title */}
+            <div className="right-column">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={project.liveDemoLink}
+                id="project-link"
+              >
                 <div className="project-title-wrapper">
                   <h2 className="project-title">{project.name}</h2>
                   <div className="icon">
@@ -181,23 +172,25 @@ function Column2({ offset }) {
                     />
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
+          </div>
 
-            <div className="project-section-container">
-              <div className="left-column">
-                {/* Project Gif */}
-                <img
-                  src={process.env.PUBLIC_URL + "/images/" + project.gif}
-                  alt="Your GIF animation"
-                  className="gif-element"
-                ></img>
-              </div>
-              <div className="right-column">
-                {/* Project Description */}
-                <p className="description">{project.description}</p>
+          <div className="project-section-container">
+            <div className="left-column">
+              {/* Project Gif */}
+              <img
+                src={process.env.PUBLIC_URL + "/images/" + project.gif}
+                alt="Your GIF animation"
+                className="gif-element"
+              ></img>
+            </div>
+            <div className="right-column">
+              {/* Project Description */}
+              <p className="description">{project.description}</p>
 
-                {/* Technology Used */}
+              {/* Technology Used */}
+              {checkedProject && (
                 <div className="technologies">
                   {project.technologiesUsed.map((tech, techIndex) => (
                     <span key={techIndex} className="tech-button">
@@ -205,74 +198,71 @@ function Column2({ offset }) {
                     </span>
                   ))}
                 </div>
-
-                {/* Live Demo, Source Code, Writeup */}
-                <div className="buttons">
-                  {project.liveDemoLink && (
-                    <a
-                      href={project.liveDemoLink}
-                      className="button-link"
-                      onMouseOver={() => setIsButtonHovered(true)}
-                      onMouseOut={() => setIsButtonHovered(false)}
-                    >
-                      <div className="button">
-                        <div className="icon">
-                          <FontAwesomeIcon
-                            className="icon-various"
-                            icon={faLaptop}
-                          />
-                        </div>
-                        <div className="button-title"> Live Demo</div>
+              )}
+              {/* Live Demo, Source Code, Writeup */}
+              <div className="buttons">
+                {project.liveDemoLink && (
+                  <a
+                    href={project.liveDemoLink}
+                    className="button-link"
+                    onMouseOver={() => setIsButtonHovered(true)}
+                    onMouseOut={() => setIsButtonHovered(false)}
+                  >
+                    <div className="button">
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="icon-various"
+                          icon={faLaptop}
+                        />
                       </div>
-                    </a>
-                  )}
+                      <div className="button-title"> Live Demo</div>
+                    </div>
+                  </a>
+                )}
 
-                  {(project.sourceCodeLink ||
-                    (project.sourceCodeLinks &&
-                      project.sourceCodeLinks.length > 0)) && (
-                    <a
-                      href={
-                        project.sourceCodeLink || project.sourceCodeLinks[0]
-                      }
-                      className="button-link"
-                      onMouseOver={() => setIsButtonHovered(true)}
-                      onMouseOut={() => setIsButtonHovered(false)}
-                    >
-                      <div className="button">
-                        <div className="icon">
-                          <FontAwesomeIcon
-                            className="icon-various"
-                            icon={faCode}
-                          />
-                        </div>
-                        <div className="button-title">Source Code</div>
+                {(project.sourceCodeLink ||
+                  (project.sourceCodeLinks &&
+                    project.sourceCodeLinks.length > 0)) && (
+                  <a
+                    href={project.sourceCodeLink || project.sourceCodeLinks[0]}
+                    className="button-link"
+                    onMouseOver={() => setIsButtonHovered(true)}
+                    onMouseOut={() => setIsButtonHovered(false)}
+                  >
+                    <div className="button">
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="icon-various"
+                          icon={faCode}
+                        />
                       </div>
-                    </a>
-                  )}
+                      <div className="button-title">Source Code</div>
+                    </div>
+                  </a>
+                )}
 
-                  {project.writeupLink && (
-                    <a
-                      href={project.writeupLink}
-                      className="button-link"
-                      onMouseOver={() => setIsButtonHovered(true)}
-                      onMouseOut={() => setIsButtonHovered(false)}
-                    >
-                      <div className="button">
-                        <div className="icon">
-                          <FontAwesomeIcon
-                            className="icon-various"
-                            icon={faPen}
-                          />
-                        </div>
-                        <div className="button-title">Writeup</div>
+                {project.writeupLink && (
+                  <a
+                    href={project.writeupLink}
+                    className="button-link"
+                    onMouseOver={() => setIsButtonHovered(true)}
+                    onMouseOut={() => setIsButtonHovered(false)}
+                  >
+                    <div className="button">
+                      <div className="icon">
+                        <FontAwesomeIcon
+                          className="icon-various"
+                          icon={faPen}
+                        />
                       </div>
-                    </a>
-                  )}
-                </div>
+                      <div className="button-title">Writeup</div>
+                    </div>
+                  </a>
+                )}
               </div>
             </div>
           </div>
-        </a>
+        </div>
       ))}
       {/*****************************************************/}
       {/******************** Experience *********************/}
@@ -280,21 +270,33 @@ function Column2({ offset }) {
       <h1 id="experience" className="section-header">
         Experience
       </h1>
+      <ThemeProvider theme={theme}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={checkedExperience}
+              onChange={handleChangeExperience}
+              color="default"
+            />
+          }
+          label="Display Technologies"
+        />
+      </ThemeProvider>
       {experienceInfo.map((experience, index) => (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={experience.link}
-          id="project-link"
-        >
-          <div key={index} className="project-container">
-            <div className="project-section-container">
-              {/* Experience Date */}
-              <div className="left-column date-wrapper">
-                <div className="date">{experience.date}</div>
-              </div>
-              {/* Expeience Title */}
-              <div className="right-column">
+        <div key={index} className="project-container">
+          <div className="project-section-container">
+            {/* Experience Date */}
+            <div className="left-column date-wrapper">
+              <div className="date">{experience.date}</div>
+            </div>
+            {/* Expeience Title */}
+            <div className="right-column">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={experience.link}
+                id="project-link"
+              >
                 <div className="project-title-wrapper">
                   <h2 className="project-title">{experience.name}</h2>
                   <div className="icon">
@@ -304,16 +306,18 @@ function Column2({ offset }) {
                     />
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
+          </div>
 
-            <div className="project-section-container">
-              <div className="left-column"></div>
-              <div className="right-column">
-                {/* Project Description */}
-                <p className="description">{experience.description}</p>
+          <div className="project-section-container">
+            <div className="left-column"></div>
+            <div className="right-column">
+              {/* Project Description */}
+              <p className="description">{experience.description}</p>
 
-                {/* Technology Used */}
+              {/* Technology Used */}
+              {checkedExperience && (
                 <div className="technologies">
                   {experience.technologiesUsed.map((tech, techIndex) => (
                     <span key={techIndex} className="tech-button">
@@ -321,10 +325,10 @@ function Column2({ offset }) {
                     </span>
                   ))}
                 </div>
-              </div>
+              )}
             </div>
           </div>
-        </a>
+        </div>
       ))}
       {/*****************************************************/}
       {/********************** Pastas ***********************/}
@@ -338,39 +342,46 @@ function Column2({ offset }) {
         offer a light yet incredibly complex taste. However, I can't deny that
         extremely intense flavors, such as wild boar, are insanely delicious.
       </div>
+      <ThemeProvider theme={theme}>
+        <FormControlLabel
+          control={
+            <Switch
+              checked={checkedPasta}
+              onChange={handleChangePasta}
+              color="default"
+            />
+          }
+          label="Display Ingredients"
+        />
+      </ThemeProvider>
       {pastaInfo.map((pasta, index) => (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={pasta.link}
-          id="project-link"
-        >
-          <div key={index} className="project-container">
-            <div className="project-section-container">
-              {/* Experience Date */}
-              <div className="left-column date-wrapper">
-                <div className="rank">{pasta.rank + "."}</div>
-              </div>
-              {/* Expeience Title */}
-              <div className="right-column">
-                <h2 className="project-title-pasta">{pasta.name}</h2>
-              </div>
+        <div key={index} className="project-container">
+          <div className="project-section-container">
+            {/* Experience Date */}
+            <div className="left-column date-wrapper">
+              <div className="rank">{pasta.rank + "."}</div>
             </div>
+            {/* Expeience Title */}
+            <div className="right-column">
+              <h2 className="project-title-pasta">{pasta.name}</h2>
+            </div>
+          </div>
 
-            <div className="project-section-container">
-              <div className="left-column">
-                {/* Project Gif */}
-                <img
-                  src={process.env.PUBLIC_URL + "/images/" + pasta.image}
-                  alt="Your GIF animation"
-                  className="pasta"
-                ></img>
-              </div>{" "}
-              <div className="right-column">
-                {/* Project Description */}
-                <p className="description">{pasta.description}</p>
+          <div className="project-section-container">
+            <div className="left-column">
+              {/* Project Gif */}
+              <img
+                src={process.env.PUBLIC_URL + "/images/" + pasta.image}
+                alt="Your GIF animation"
+                className="pasta"
+              ></img>
+            </div>{" "}
+            <div className="right-column">
+              {/* Project Description */}
+              <p className="description">{pasta.description}</p>
 
-                {/* Technology Used */}
+              {/* Technology Used */}
+              {checkedPasta && (
                 <div className="technologies">
                   {pasta.ingredients.map((tech, techIndex) => (
                     <span key={techIndex} className="tech-button">
@@ -378,10 +389,10 @@ function Column2({ offset }) {
                     </span>
                   ))}
                 </div>
-              </div>
+              )}
             </div>
           </div>
-        </a>
+        </div>
       ))}
       <h2>Honorable Mentions</h2>{" "}
       <div className="honorable">
@@ -446,14 +457,14 @@ function Column2({ offset }) {
       </div>
       <style>
         {`
-          #project-link:hover .link-icon {
-          height: ${isButtonHovered ? "15px" : "20px"};
-          }
-          #project-link:hover .project-title {
-          font-size: ${isButtonHovered ? "20px" : "21px"};
-          padding-top: ${isButtonHovered ? "0.5px" : "0px"};
-          padding-bottom: ${isButtonHovered ? "0.5px" : "0px"};
-          }
+          // #project-link:hover .link-icon {
+          // height: ${isButtonHovered ? "15px" : "20px"};
+          // }
+          // #project-link:hover .project-title {
+          // font-size: ${isButtonHovered ? "20px" : "21px"};
+          // padding-top: ${isButtonHovered ? "0.5px" : "0px"};
+          // padding-bottom: ${isButtonHovered ? "0.5px" : "0px"};
+          // }
           `}
       </style>
     </div>

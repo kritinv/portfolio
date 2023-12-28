@@ -7,23 +7,25 @@
   background-color: #f8f8f0; /* Light cream background color */
   color: #333; /* Very dark grey text color */
   font-family: "Poppins", sans-serif;
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .column1 {
-  margin-left: 200px;
+  margin-left: 20px;
   padding: 60px;
   width: 50%;
   max-width: 380px;
   height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: sticky;
   top: 0;
-  right: 52%;
+  right: 50%;
 }
 
 .column2 {
-  margin-left: 530px;
+  margin-left: 0px;
   padding: 60px;
   padding-left: 60px;
   padding-right: 100px;
@@ -34,50 +36,25 @@
   max-width: 520px;
 }
 
-/* .column2::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.column2 {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
 .aboutme {
   margin-bottom: 50px;
 }
 
-@media screen and (max-width: 1200px) {
-  .column1 {
-    right: 48%;
-  }
-}
-
 /* Add a media query for smaller screens */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1050px) {
   .App {
     flex-direction: column; /* Stack columns for smaller screens */
-  }
-
-  .column1 {
-    margin-top: 12px;
-    height: calc(100vh - 120px);
-    position: static;
-  }
-
-  .column2 {
-    margin-bottom: 0px;
+    height: 100%;
   }
 
   .column1,
   .column2 {
     margin-left: 0px;
+    padding: 0px;
     max-width: 75%;
     width: 80%; /* Take up full width on smaller screens */
     margin-right: 0px;
     overflow: hidden; /* Hide overflow to prevent scrolling */
-    padding: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,10 +62,14 @@
   }
 
   .column1 {
+    margin-top: 12px;
+    position: static;
     min-height: 0;
     height: 410px;
   }
+
   .column2 {
+    margin-bottom: 0px;
     padding: 0px;
     height: 100%;
   }
@@ -98,6 +79,10 @@
     margin-bottom: 0;
   }
 
+  .portrait {
+    visibility: hidden;
+    height: 0px;
+  }
   nav {
     visibility: hidden;
     height: 0px;

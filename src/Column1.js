@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Column1.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -11,41 +11,19 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 function Column1({ activeSection, setCurrentSection }) {
-  const [scrolling, setScrolling] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   const scrollToSection = (section) => {
-    document.getElementById(section).scrollIntoView({
-      behavior: "smooth",
-    });
     setCurrentSection(section);
   };
 
   return (
-    <div className={`column1 center-content ${scrolling ? "scrolling" : ""}`}>
+    <div className={`column1`}>
       {" "}
       <h1 className="name">Kritin Vongthongsri</h1>
       <h3>Aspiring Software Engineer</h3>
       <p className="serious">
         I am a{" "}
-        <a href="https://usg.princeton.edu/2024" className="text-link">
-          <strong>Senior</strong>
-        </a>{" "}
+        {/* <a href="https://usg.princeton.edu/2024" className="text-link"> */}
+        senior {/* </a>{" "} */}
         at{" "}
         <a href="https://www.princeton.edu/" className="text-link">
           <strong>Princeton University</strong>
@@ -138,6 +116,10 @@ function Column1({ activeSection, setCurrentSection }) {
           <FontAwesomeIcon className="contact-item" icon={faEnvelope} />
         </a>
       </div>
+      <img
+        className="portrait"
+        src={process.env.PUBLIC_URL + "/images/" + "portrait.png"}
+      ></img>
     </div>
   );
 }

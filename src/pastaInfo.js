@@ -3,7 +3,7 @@ const pastaInfo = [
     name: "Pasta c'Anciuova e Muddica Atturrata",
     rank: 1,
     description:
-      "Hailing from Sicily, this dish combines cured anchovies with Muddica Atturrata—a blend of toasted breadcrumbs, garlic, and chili flakes.",
+      "Hailing from Sicily, this dish combines cured anchovies with Muddica Atturrata—a blend of toasted breadcrumbs, garlic, and chili flakes. It is a delightful combination of flavors that captures the essence of Sicilian cuisine.",
     ingredients: [
       "Anchovy Fillets",
       "Olive Oil",
@@ -19,7 +19,7 @@ const pastaInfo = [
     name: "Spaghetti Poveri",
     rank: 2,
     description:
-      "A creation born out of Italian creativity and necessity, featuring humble ingredients like garlic, olive oil, chili flakes, anchovies, olives, and Italian parsley.",
+      "A creation born out of Italian creativity and necessity, featuring humble ingredients like garlic, olive oil, chili flakes, anchovies, olives, and Italian parsley. This dish is a testament to the simplicity and richness of traditional Italian flavors.",
     ingredients: [
       "Garlic",
       "Olive Oil",
@@ -35,7 +35,7 @@ const pastaInfo = [
     name: "Capellini Aglio, Olio e Peperoncino",
     rank: 3,
     description:
-      "A classic Italian pasta dish featuring delicate capellini pasta with a sauce made by sautéing garlic and chili flakes in olive oil.",
+      "A classic Italian pasta dish featuring delicate capellini pasta with a sauce made by sautéing garlic and chili flakes in olive oil. The simplicity of this dish is what makes it a timeless favorite among pasta enthusiasts.",
     ingredients: [
       "Capellini",
       "Garlic",
@@ -50,7 +50,7 @@ const pastaInfo = [
     name: "Pappardelle al Cinghiale",
     rank: 4,
     description:
-      "Originating from rustic landscapes, this dish features wide ribbon pasta with a hearty wild boar ragù, slow-cooked to perfection.",
+      "Originating from rustic landscapes, this dish features wide ribbon pasta with a hearty wild boar ragù, slow-cooked to perfection. The savory flavors of the ragù are a true celebration of traditional Italian comfort food.",
     ingredients: ["Pappardelle", "Ragu di cinghiale", "Parlsey", "Parmigiano"],
     image: "4.jpg",
     link: "https://www.tasteatlas.com/pappardelle-al-cinghiale",
@@ -59,7 +59,7 @@ const pastaInfo = [
     name: "Linguini all'Astice",
     rank: 5,
     description:
-      "A seafood lover's delight, this dish features linguini pasta tossed with a decadent sauce made from fresh lobster, cherry tomatoes, garlic, white wine, and red pepper flakes.",
+      "A seafood lover's delight, this dish features linguini pasta tossed with a decadent sauce made from fresh lobster, cherry tomatoes, garlic, white wine, and red pepper flakes. The combination of fresh seafood and aromatic ingredients creates a truly indulgent experience.",
     ingredients: [
       "Linguini",
       "Lobster",

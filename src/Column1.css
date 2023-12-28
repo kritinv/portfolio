@@ -41,6 +41,9 @@ li {
   transition: width 0.1s, height 0.1s; /* Add transition for smooth animation */
 }
 
+.nav {
+  pointer-events: auto !important;
+}
 .menuline-wrapper {
   display: flex;
   flex-direction: column;
@@ -63,6 +66,11 @@ li.active .menuitem {
   font-weight: bold;
 }
 
+.portrait {
+  width: 300px;
+  margin-left: -60px;
+}
+
 .menuitem {
   font-size: 14px;
   color: #333;
@@ -78,7 +86,7 @@ li.active .menuitem {
   flex-direction: flex-start;
   font-size: 25px;
   margin-top: auto; /* Push the contact section to the bottom */
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 
 .contact-item {
