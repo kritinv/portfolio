@@ -19,16 +19,15 @@ function Column1({ activeSection, setCurrentSection }) {
     <div className={`column1`}>
       {" "}
       <h1 className="name">Kritin Vongthongsri</h1>
-      <h3>Aspiring Software Engineer</h3>
+      <h3>Software Engineer • AI/ML Engineer</h3>
       <p className="serious">
-        I am a{" "}
         {/* <a href="https://usg.princeton.edu/2024" className="text-link"> */}
-        senior {/* </a>{" "} */}
+        ORFE and CS {/* </a>{" "} */}
         at{" "}
         <a href="https://www.princeton.edu/" className="text-link">
           <strong>Princeton University</strong>
-        </a>{" "}
-        looking for opportunities in software engineering. I love making{" "}
+        </a>
+        , seeking opportunities in AI/ML and SWE. I love making{" "}
         <a
           href="https://www.youtube.com/watch?v=AX-YfWX0bFY"
           className="text-link"

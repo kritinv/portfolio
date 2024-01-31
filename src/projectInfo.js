@@ -74,9 +74,8 @@ const projectInfo = [
       "GoogleNet",
       "PyTorch",
     ],
-    liveDemoLink:
-      "https://universe.roboflow.com/pocketsight-r1e4c/degen101-original-stack-size-rn0ra",
-    sourceCodeLinks: [
+
+    writeupLink: [
       "https://github.com/kritinv/chip-counter/blob/main/Final%20Writeup.pdf",
     ],
 
@@ -98,9 +97,7 @@ const projectInfo = [
       "Google Analytics",
     ],
     liveDemoLink: "https://degen101.club/",
-    sourceCodeLinks: [
-      "https://github.vhttps://github.com/kritinv/chip-counter/blob/main/Final%20Writeup.pdf/kritinv/Degen101",
-    ],
+    sourceCodeLinks: ["https://github.com/kritinv/Degen101"],
     gif: "degen101.gif", // Add the relevant GIF link
   },
 
@@ -119,8 +116,7 @@ const projectInfo = [
       "HTML",
       "CSS",
     ],
-    liveDemoLink: "https://degen101.club/",
-    sourceCodeLinks: ["https://github.com/kritinv/Degen101"],
+    sourceCodeLinks: ["https://github.com/piercemaloney/TigerGroups"],
     gif: "tigergroups.gif", // Add the relevant GIF link
   },
 ];

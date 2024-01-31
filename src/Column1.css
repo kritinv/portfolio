@@ -85,7 +85,7 @@ li.active .menuitem {
   display: flex;
   flex-direction: flex-start;
   font-size: 25px;
-  margin-top: auto; /* Push the contact section to the bottom */
+  margin-top: 25px; /* Push the contact section to the bottom */
   margin-bottom: 25px;
 }
 

@@ -49,12 +49,12 @@ function Column2() {
         About Me
       </h1>
       <div className="aboutme">
-        My coding journey started in 2018, and since then, I've been immersed in
-        a range of projects—spanning websites, games, AI systems, trading bots,
-        and web scrapers.
+        I've been coding for 6+ years and have been immersed in a range of
+        projects—spanning websites, games, AI systems, trading bots, and web
+        scrapers!
       </div>
       <div className="aboutme">
-        Currently pursuing a major in{" "}
+        I have a B.S.E. in{" "}
         <a href="https://orfe.princeton.edu/" className="text-link">
           <strong>Operations Research</strong>
         </a>{" "}
@@ -74,8 +74,8 @@ function Column2() {
         ), I really enjoy creating, building, and learning new things.
       </div>
       <div className="aboutme">
-        In the professional landscape, I've gained valuable experience as an ML
-        intern across diverse settings, from a{" "}
+        In the professional landscape, I've worked as a SWE and ML engineer
+        across diverse settings, from a{" "}
         <a href="https://www.abacusdigital.com/" className="text-link">
           <strong>startup</strong>
         </a>{" "}
@@ -93,7 +93,7 @@ function Column2() {
         >
           <strong>private fund</strong>
         </a>
-        .
+        , leveraging cool AI tech such as LLMs, including GPT3.5!
       </div>
       <div className="aboutme">
         Beyond the screen, you might find me experimenting with{" "}
